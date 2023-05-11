@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "mathGPT": {
+      "projectType": "library",
+      "root": "projects/math-gpt",
+      "sourceRoot": "projects/math-gpt/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/math-gpt/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/math-gpt/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/math-gpt/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/math-gpt/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
